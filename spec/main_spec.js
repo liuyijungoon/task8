@@ -19,13 +19,29 @@ describe("测试描述", function(){
         
         expect(expect_string).to.equal(result);
     });
-
-    it("测试用例2", function(){
-        sinon.spy(console, 'log');
-        main();
-        var result = _.flatten(console.log.args).join("\n");
-        var expect_string = '';
-
+    
+    it("input='12345-6789'", function(){
+        var input ='12345-6789'
+        var result = main(input);
+        var expect_string = '|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|'
+        
         expect(expect_string).to.equal(result);
     });
+     it("input= '|:::||::|:|::||::|::|:|:|::|:|:|'", function(){
+        var input ='|:::||::|:|::||::|::|:|:|::|:|:|'
+        var result = main(input);
+        var expect_string = '12345'
+        
+        expect(expect_string).to.equal(result);
+    });
+     it("input='|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|'", function(){
+        var input ='|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|';
+        var result = main(input);
+        var expect_string = '12345-6789'
+        
+        expect(expect_string).to.equal(result);
+    });
+       
+
+
 });
