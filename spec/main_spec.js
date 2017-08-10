@@ -10,7 +10,13 @@ var main = require("../lib/main.js");
 
 
 describe("测试描述", function(){
-    
+    it("不合法的输入", function(){
+        var input ='123345'
+        var result = main(input);
+        var expect_string = 'input is illegal!';
+        
+        expect(expect_string).to.equal(result);
+    });
 
     it("input='12345'", function(){
         var input ='12345'
